@@ -1,0 +1,16 @@
+def F(x):
+    r = x*2 + x + 1 
+    return r
+def E(ex,n):
+    er= [0]*n #array of zeros
+    for i in range(0,n):
+        er[i]=ex[i][1] - F(ex[i][0])
+    return er
+n = int(input("Enter experimental points (limit to 10):"))
+ex = [] 
+print("Enter data points in pair eg.(1 2) = ")
+for i in range(0,n):
+    ex.append([int(j) for j in input("Enter two value = ").split()])
+er = E(ex,n)
+print("Error array = \n")
+print(er)

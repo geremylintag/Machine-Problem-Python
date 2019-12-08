@@ -1,0 +1,32 @@
+from math import sqrt
+def Probtwo(x1, y1, x2, y2, x3, y3):
+     #Enter 3 points (x and y)
+        xa = x1 - x2
+        xb = x1 - x3
+        xc = x3 - x1
+        xd = x2 - x1
+        ya = y1 - y2
+        yb = y1 - y3
+        yc = y3 - y1
+        yd = y2 - y1
+        EA = (x1*x1) - (x3*x3)
+        EB = (x2*x2) - (x1*x1)
+        EC = (y1*y1) - (y3*y3)
+        ED = (y2*y2) - (y1*y1)
+        Fa = (((EA*xa) + (EC*xa) + (EB*xb) + (ED*xb)))
+        Fb = (2*((yc*xa)-(yd*xb)))
+        F = (Fa//Fb);
+        Ga = ((EA*ya)+(EC*ya)+(EB*yb)+(ED*yb))
+        Gb = (2*((xc*ya)-(xd*yb)))
+        G = (Ga//Gb);
+        D = (-x1*x1)-(y1*y1)-(2*F*y1)-(2*G*x1)
+        f = -F;
+        g = -G;
+        r2 = (g*g)*(f*f)-D
+        r = round(sqrt(r2),5)
+        v = [2*G,2*F,D];
+    #Solutions for getting the circle center, radius, and vector
+        print("Center of Circle = (",g,",",f,")")
+        print("Radius of Circle= ", r)
+        print("Vector of Circle",v)
+                    

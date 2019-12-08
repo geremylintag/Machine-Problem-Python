@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+a = []
+b = []
+n = list(range(100))
+def f(n):
+    if n < 9:
+        f1 = n **(2) - 7
+        return f1
+    return f(n-10)
+#Function for the piecewise equation
+for x in n:
+    a.append(x)
+    b.append(f(x))
+plt.stem(a,b, '-',markerfmt='.')
+plt.grid()
+plt.show()
+##Plotting

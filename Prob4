@@ -1,0 +1,31 @@
+import math as mt
+import numpy as np
+import sys as sy
+import matplotlib.pyplot as plt
+
+def probfor (h,vo,theta,ax,ay):
+    
+    if ay == 0:
+        sy.exit("Error! Please input non-zero vertical acceleration.")
+    ##Shows error message if ay = 0
+    a= mt.radians(theta)
+    vox = vo*mt.cos(a)
+    voy = vo*mt.sin(a)
+    d = mt.sqrt(voy**2 - 4*((1/2*ay)*h))
+    t1 = (-voy + d )/ ay
+    t2 = (-voy - d )/ ay
+    #Solutions for computing vox,voy,d,t1,t2
+    if t1 <= 0:
+        t1 = t2
+        x = vox*(np.linspace(0,t1)) + 1/2*(ax*np.linspace(0,t1)**2)
+        y = voy*(np.linspace(0,t1)) + 1/2*(ay*np.linspace(0,t1)**2)
+    else:
+        x = vox*(np.linspace(0,t1)) + 1/2*(ax*np.linspace(0,t1)**2)
+        y = voy*(np.linspace(0,t1)) + 1/2*(ay*np.linspace(0,t1)**2)
+    ##Formula for solving projectile motion
+    plt.plot(x,y)
+    plt.xlabel("Projectile as it goes in the X direction")
+    plt.ylabel("Projectile as it goes in the Y direction")
+    plt.grid()
+    plt.show()
+    ##Plotting

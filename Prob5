@@ -1,0 +1,32 @@
+from matplotlib import pyplot as plt
+import math
+
+n = list(range(200))
+xf = []
+yf = []
+##To be used later as matrices
+def x(n):
+    x = math.sin((3*math.pi*n) / 100)
+    return x
+##Function that encodes the equation
+def y(n):
+    if n == 0:
+        y = -1.5* x(n) + 2*x(n+1) - 0.5*x(n+2)
+    elif n > 0 and n <=198:
+        y = 0.5*x(n+1) - 0.5*x(n-1)
+    else:
+        y = 1.5*x(n) - 2*x(n-1) + 0.5*x(n-2)
+    return y
+##Given piecewise equation
+for a in n:
+    xf.append(x(a))
+    yf.append(y(a))
+    ##Combines the results of x(a) and y(a)
+plt.plot(n,xf, color ='g',label = 'Function x(n)')
+plt.plot(n,yf, color ='b',label = 'Function y(n)')
+plt.grid()
+plt.xlabel('n')
+plt.ylabel('x and y with respect to n')
+plt.legend()
+plt.show()
+##Plotting 
